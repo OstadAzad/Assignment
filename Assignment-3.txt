@@ -1,0 +1,791 @@
+Answer to the question no. 1
+
+a) 
+
+const currentDate = new Date();
+console.log(currentDate);
+
+var dayofWeek = currentDate.getDay();
+console.log(dayofWeek);
+
+b)
+
+function displayDayOfWeek() {
+  const daysOfWeek = [
+    "Saturday",
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+  ];
+
+  const currentDate = new Date();
+  const dayOfWeek = currentDate.getDay();
+  const dayName = daysOfWeek[dayOfWeek];
+
+  console.log("Today is:" + dayName);
+}
+displayDayOfWeek();
+
+
+Answer to the question no. 2
+
+a) 
+
+const numbers = [3, 4, 5];
+const result = squareRootOfSumOfSquares(numbers);
+
+function squareRootOfSumOfSquares(numbers) {
+    let sumOfSquares = 0;
+
+    for (let i = 0; i < numbers.length; i++) {
+      sumOfSquares += Math.pow(numbers[i], 2);
+    }
+  
+    const result = Math.sqrt(sumOfSquares);
+    return result;
+  }
+console.log(result);
+
+b)
+
+const numbers = [3, 4, 5];
+function squareRootOfSumOfSquares(numbers) {
+    let sumOfSquares = 0;
+
+    for (let i = 0; i < numbers.length; i++) {
+      sumOfSquares += Math.pow(numbers[i], 2);
+    }
+
+    const result = Math.sqrt(sumOfSquares);
+
+    console.log(`The square root of the sum of squares is: ${result}`);
+  }
+squareRootOfSumOfSquares(numbers);
+
+
+Answer to the question no. 3
+
+a) & b)
+
+function isPrime(num) {
+    if (num <= 1) {
+      return false; 
+    }
+
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+      if (num % i === 0) {
+        return false;
+      }
+    }
+  
+    return true; 
+  }
+  
+console.log(isPrime(7));
+
+
+Answer to the questioin no. 4
+
+a) & b)
+
+ <script>
+function openWindow(url, width, height) {
+    // Calculate the position of the window to center it on the screen
+    const left = (window.innerWidth - width) / 2;
+    const top = (window.innerHeight - height) / 2;
+    
+    // Open the new window
+    window.open(url, "_blank", `width=${width}, height=${height}, left=${left}, top=${top}`);
+  }
+  openWindow("https://www.example.com", 800, 600);
+    </script>
+
+
+Answer to the question no. 5
+
+
+a) 
+
+<script>
+var firefoxInfo = getFirefoxBrowserInfo();
+
+function getFirefoxBrowserInfo() {
+    var ua = navigator.userAgent;
+    var firefoxIndex = ua.indexOf("Firefox");
+    
+    if (firefoxIndex !== -1) {
+      var browserInfo = ua.slice(firefoxIndex);
+      var version = browserInfo.split('/')[1];
+      var browserName = browserInfo.split('/')[0];
+      return {
+        name: browserName,
+        version: version
+      };
+    } else {
+      return {
+        name: "Unknown",
+        version: "Unknown"
+      };
+    }
+  }
+  console.log("Browser Name:", firefoxInfo.name);
+  console.log("Browser Version:", firefoxInfo.version);
+    </script>
+
+b) 
+
+<script>
+        function displayFirefoxBrowserInfo() {
+  var ua = navigator.userAgent;
+  var firefoxIndex = ua.indexOf("Firefox");
+
+  if (firefoxIndex !== -1) {
+    var browserInfo = ua.slice(firefoxIndex);
+    var version = browserInfo.split('/')[1];
+    var browserName = browserInfo.split('/')[0];
+
+    var infoElement = document.createElement("div");
+    infoElement.innerHTML = "Browser Name: " + browserName + "<br>Browser Version: " + version;
+    document.body.appendChild(infoElement);
+  } else {
+    var unknownElement = document.createElement("div");
+    unknownElement.innerHTML = "Unable to detect Firefox browser.";
+    document.body.appendChild(unknownElement);
+  }
+}
+displayFirefoxBrowserInfo();
+    </script>
+
+Answer to the question no. 6
+
+a)
+
+ <script>
+        function getCurrentLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        function(position) {
+          const latitude = position.coords.latitude;
+          const longitude = position.coords.longitude;
+          console.log('Latitude:', latitude);
+          console.log('Longitude:', longitude);
+        },
+        function(error) {
+          console.error('Error getting current location:', error.message);
+        }
+      );
+    } else {
+      console.error('Geolocation is not supported by this browser.');
+    }
+  }
+  getCurrentLocation();
+    </script>
+
+Answer to the question no. 7
+
+a)
+
+<script>
+        // Add event listener to the whole document
+document.addEventListener('click', function(event) {
+  // Retrieve the coordinates of the click
+  var x = event.pageX;
+  var y = event.pageY;
+
+  // Display an alert with the coordinates
+  alert('Clicked at coordinates (x, y): ' + x + ', ' + y);
+});
+    </script>
+
+
+b)
+
+<script>
+       // Attach an event listener to the 'keydown' event of the document
+document.addEventListener('keydown', function(event) {
+  // Display an alert with the key code of the pressed key
+  alert('Key code: ' + event.keyCode);
+});
+    </script>
+
+
+c)
+
+<script>
+    function changeImageSource() {
+      var image = document.getElementById("myImage");
+      image.src = "new-image.jpg";
+    }
+  </script>
+</head>
+<body>
+  <img id="myImage" src="original-image.jpg" alt="Original Image">
+  <script>
+    var image = document.getElementById("myImage");
+    image.addEventListener("mouseover", changeImageSource);
+  </script>
+
+
+Answer to the question no. 8
+
+
+a) & b)
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Creating a Webpage with a Button and Paragraph using HTML DOM</title>
+</head>
+<body>
+
+  <h1>My Webpage</h1>
+
+  <button id="myButton">Click Me</button>
+  <p id="myParagraph"></p>
+
+  <script>
+    // Wait for the document to load
+    document.addEventListener("DOMContentLoaded", function(event) {
+      
+      // Get references to the button and paragraph elements
+      var button = document.getElementById("myButton");
+      var paragraph = document.getElementById("myParagraph");
+      
+      // Add a click event listener to the button
+      button.addEventListener("click", function() {
+        // Change the text content of the paragraph when the button is clicked
+        paragraph.textContent = "Button clicked!";
+      });
+      
+    });
+  </script>
+
+</body>
+</html>
+
+
+Answer to the question no. 9
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Validation</title>
+  <style>
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <form id="myForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" required>
+    <span id="nameError" class="error"></span>
+    <br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" required>
+    <span id="emailError" class="error"></span>
+    <br><br>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" required>
+    <span id="passwordError" class="error"></span>
+    <br><br>
+
+    <label for="confirmPassword">Confirm Password:</label>
+    <input type="password" id="confirmPassword" required>
+    <span id="confirmPasswordError" class="error"></span>
+    <br><br>
+
+    <input type="submit" value="Submit">
+  </form>
+
+  <script>
+    const form = document.getElementById('myForm');
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+    const confirmPasswordInput = document.getElementById('confirmPassword');
+    const nameError = document.getElementById('nameError');
+    const emailError = document.getElementById('emailError');
+    const passwordError = document.getElementById('passwordError');
+    const confirmPasswordError = document.getElementById('confirmPasswordError');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      validateForm();
+    });
+
+    function validateForm() {
+      clearErrors();
+
+      const nameValue = nameInput.value.trim();
+      const emailValue = emailInput.value.trim();
+      const passwordValue = passwordInput.value.trim();
+      const confirmPasswordValue = confirmPasswordInput.value.trim();
+
+      // Name validation
+      if (nameValue === '') {
+        nameError.textContent = 'Name is required';
+      } else if (!/^[a-zA-Z]+$/.test(nameValue)) {
+        nameError.textContent = 'Name should contain only letters';
+      }
+
+      // Email validation
+      if (emailValue === '') {
+        emailError.textContent = 'Email is required';
+      } else if (!isValidEmail(emailValue)) {
+        emailError.textContent = 'Invalid email format';
+      }
+
+      // Password validation
+      if (passwordValue === '') {
+        passwordError.textContent = 'Password is required';
+      } else if (!isValidPassword(passwordValue)) {
+        passwordError.textContent = 'Password should have a minimum length of 8 characters and contain at least one uppercase letter, one lowercase letter, and one digit';
+      }
+
+      // Confirm Password validation
+      if (confirmPasswordValue === '') {
+        confirmPasswordError.textContent = 'Confirm Password is required';
+      } else if (passwordValue !== confirmPasswordValue) {
+        confirmPasswordError.textContent = 'Passwords do not match';
+      }
+    }
+
+    function clearErrors() {
+      nameError.textContent = '';
+      emailError.textContent = '';
+      passwordError.textContent = '';
+      confirmPasswordError.textContent = '';
+    }
+
+    function isValidEmail(email) {
+      // Basic email validation regex
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    }
+
+    function isValidPassword(password) {
+      // Password validation regex
+      const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])}
+
+
+
+Answer to the question no. 10
+
+
+a) & b)
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DOM Manipulation</title>
+  <style>
+    .highlight {
+      background-color: yellow;
+    }
+  </style>
+</head>
+<body>
+  <button id="btn">Click me</button>
+  <p id="paragraph">This is a paragraph.</p>
+
+  <script>
+    const button = document.getElementById('btn');
+    const paragraph = document.getElementById('paragraph');
+
+    button.addEventListener('click', function() {
+      paragraph.classList.add('highlight');
+    });
+  </script>
+</body>
+</html>
+
+
+Answer to the question no. 11
+
+
+a) & b)
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dynamically Create List Items</title>
+  <script>
+    function createListItems() {
+      var ul = document.getElementById("myList");
+
+      for (var i = 1; i <= 5; i++) {
+        var li = document.createElement("li");
+        li.appendChild(document.createTextNode("Item " + i));
+        ul.appendChild(li);
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>Dynamically Create List Items</h1>
+  <ul id="myList"></ul>
+  <button onclick="createListItems()">Create Items</button>
+</body>
+</html>
+
+
+Answer to the question no. 12
+
+a) & b)
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Change Example</title>
+</head>
+<body>
+    <h1>Image Change Example</h1>
+    <img id="myImage" src="initial_image.jpg" alt="Initial Image">
+    <br>
+    <button onclick="changeImage()">Change Image</button>
+
+    <script>
+        function changeImage() {
+            var image = document.getElementById("myImage");
+            image.src = "new_image.jpg";
+            image.alt = "New Image";
+        }
+    </script>
+</body>
+</html>
+
+
+
+Answer to the question no. 13
+
+
+a) & b)
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .class1 {
+      color: blue;
+    }
+
+    .class2 {
+      color: green;
+    }
+  </style>
+  <script>
+    function changeTextColor(className) {
+      var paragraphs = document.getElementsByClassName(className);
+
+      for (var i = 0; i < paragraphs.length; i++) {
+        paragraphs[i].style.color = "red";
+      }
+    }
+  </script>
+</head>
+<body>
+  <p id="paragraph1" class="class1">This is the first paragraph.</p>
+  <p id="paragraph2" class="class2">This is the second paragraph.</p>
+  <p id="paragraph3" class="class1">This is the third paragraph.</p>
+  <p id="paragraph4" class="class2">This is the fourth paragraph.</p>
+
+  <button onclick="changeTextColor('class1')">Change Text Color for class1</button>
+  <button onclick="changeTextColor('class2')">Change Text Color for class2</button>
+</body>
+</html>
+
+
+Answer to the question no. 14
+
+
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="./css/milligram.css">
+</head>
+
+<body>
+    <table>
+      <thead>
+        
+        <tr>
+            <th>Product Name</th>
+            <th>Product Code</th>
+            <th>Unit Price</th>
+            <th>Qty</th>
+            <th>Total Price</th>
+            <th>Delete</th>
+            <th>Update</th>
+        </tr>
+      </thead>
+
+      <tbody id="itemList"> </tbody>
+    </table>
+
+<script src="./js/axios.min.js"> </script>
+<script>
+GetList();
+async function GetList(){
+   let res = await axios.get("https://api.example.com/data");
+
+if(res.status==200){
+    let list=res.data["data"];
+    list.forEach(item=>{
+       document.getElementById("itemList").innerHTML+=(`<tr>
+            <td>${item["Product Name"]}</td>
+            <td>${item["Product Code"]}</td>
+            <td>${item["Unit Price"]}</td>
+            <td>${item["Qty"]}</td>
+            <td>${item["Total Price"]}</td>
+            <td><button>Delete</button></td>
+            <td><button>Update</button></td>
+        </tr>`
+       )
+    });
+}
+else{
+    console.log("error");
+}
+}
+</script>
+
+
+</body>
+
+</html>
+
+
+Answer to the question no. 15
+
+a)
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/milligram.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="column">
+
+                <label for="productID">Product ID</label>
+                <input type="text" id="productID" placeholder="Product ID">
+
+
+                <label for="productName">Product Name</label>
+                <input type="text" id="productName" placeholder="Product Name">
+
+                <label for="productCode">Product Code</label>
+                <input type="text" id="productCode" placeholder="Product Code">
+
+                <label for="unitPrice">Unit Price</label>
+                <input type="text" id="unitPrice" placeholder="Unit Price">
+
+                <label for="qty">Qty</label>
+                <input type="text" id="qty" placeholder="Qty">
+
+                <label for="totalPrice">Total Price</label>
+                <input type="text" id="totalPrice" placeholder="Total Price">
+
+                <label for="productImage">Product Image</label>
+                <input type="text" id="productImage" placeholder="Product Image">
+
+                <button onclick="updateItem()">Update</button>
+            </div>
+
+
+
+
+    <script src="./js/axios.min.js"> </script>
+
+    <script>
+        fillExistingData();
+        async function fillExistingData(){
+            const queryString = new URLSearchParams(window.location.search);
+            const id = queryString.get("id");
+            let res = await axios.get(`https://crud.teamrabbil.com/api/v1/ReadProductByID/${id}`);
+            if (res.status==200){
+            let data = res.data["data"][0];
+            document.getElementById("productID").value=data["_id"];
+            document.getElementById("productName").value=data["productName"];
+            document.getElementById("productCode").value=data["productCode"];
+            document.getElementById("unitPrice").value=data["unitPrice"];
+            document.getElementById("qty").value=data["qty"];
+            document.getElementById("totalPrice").value=data["totalPrice"];
+            document.getElementById("productImage").value=data["productImage"];
+            }
+            else{
+                alert("error");
+            }
+        }
+        async function updateItem() {
+        let productID =  document.getElementById("productID").value;
+        let productName = document.getElementById("productName").value;
+        let productCode = document.getElementById("productCode").value;
+        let unitPrice =  document.getElementById("unitPrice").value;
+        let qty = document.getElementById("qty").value;
+        let totalPrice = document.getElementById("totalPrice").value;
+        let productImage = document.getElementById("productImage").value;
+
+        let updateObj={
+            "Img":productImage,
+            "ProductCode":productCode,
+            "ProductName":productName,
+            "Qty":"qty",
+            "TotalPrice":totalPrice,
+            "UnitPrice":unitPrice  
+        }
+        let res = await axios.post(`https://crud.teamrabbil.com/api/v1/UpdateProduct/${productID}`,updateObj);
+        if(res.status==200){
+            alert("updated");
+            window.location.href="index.html";
+        }
+        else{
+            alert("error");
+        }
+        }
+    </script>
+</body>
+</html>
+
+
+b)
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/milligram.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="column">
+
+                <label for="productID">Product ID</label>
+                <input type="text" id="productID" placeholder="Product ID">
+
+
+                <label for="productName">Product Name</label>
+                <input type="text" id="productName" placeholder="Product Name">
+
+                <label for="productCode">Product Code</label>
+                <input type="text" id="productCode" placeholder="Product Code">
+
+                <label for="unitPrice">Unit Price</label>
+                <input type="text" id="unitPrice" placeholder="Unit Price">
+
+                <label for="qty">Qty</label>
+                <input type="text" id="qty" placeholder="Qty">
+
+                <label for="totalPrice">Total Price</label>
+                <input type="text" id="totalPrice" placeholder="Total Price">
+
+                <label for="productImage">Product Image</label>
+                <input type="text" id="productImage" placeholder="Product Image">
+
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Name">
+
+
+                <label for="email">Email Address</label>
+                <input type="text" id="email" placeholder="Email Address">
+
+               
+
+                <button onclick="updateItem()">Update</button>
+            </div>
+
+
+
+
+    <script src="./js/axios.min.js"> </script>
+
+    <script>
+        fillExistingData();
+        async function fillExistingData(){
+            const queryString = new URLSearchParams(window.location.search);
+            const id = queryString.get("id");
+            let res = await axios.get(`https://crud.teamrabbil.com/api/v1/ReadProductByID/${id}`);
+            if (res.status==200){
+            let data = res.data["data"][0];
+            document.getElementById("productID").value=data["_id"];
+            document.getElementById("productName").value=data["productName"];
+            document.getElementById("productCode").value=data["productCode"];
+            document.getElementById("unitPrice").value=data["unitPrice"];
+            document.getElementById("qty").value=data["qty"];
+            document.getElementById("totalPrice").value=data["totalPrice"];
+            document.getElementById("productImage").value=data["productImage"];
+
+           document.getElementById("name").value=data["name"];
+           document.getElementById("email").value=data["email"];
+            }
+            else{
+                alert("error");
+            }
+        }
+        async function updateItem() {
+        let productID =  document.getElementById("productID").value;
+        let productName = document.getElementById("productName").value;
+        let productCode = document.getElementById("productCode").value;
+        let unitPrice =  document.getElementById("unitPrice").value;
+        let qty = document.getElementById("qty").value;
+        let totalPrice = document.getElementById("totalPrice").value;
+        let productImage = document.getElementById("productImage").value;
+
+       let name = document.getElementById("name").value;
+       let email = document.getElementById("email").value;
+
+        let updateObj={
+            "Img":productImage,
+            "ProductCode": productCode,
+            "ProductName": productName,
+            "Qty":qty,
+            "TotalPrice":totalPrice,
+            "UnitPrice":unitPrice,
+           "name": "Jhon Doe",
+           "email" : "johndoe@example.com"
+        }
+        let res = await axios.post(`https://crud.teamrabbil.com/api/v1/UpdateProduct/${productID}`,updateObj);
+        if(res.status==200){
+            alert("updated");
+            window.location.href="index.html";
+        }
+        else{
+            alert("error");
+        }
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
